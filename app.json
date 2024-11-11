@@ -17,10 +17,10 @@
       "bundleIdentifier": "com.visua.visuamobile"
     },
     "android": {
+      "package": "com.visua.visuamobile",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff",
-        "package": "com.visua.visuamobile"
+        "backgroundColor": "#ffffff"
       }
     },
     "web": {
