@@ -1,4 +1,6 @@
 import { Text, View } from "react-native";
+import Configuracoes from "./screens/configuracoes";
+import React from "react";
 
 export default function Index() {
   return (
@@ -9,7 +11,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Configuracoes/>
     </View>
   );
 }
