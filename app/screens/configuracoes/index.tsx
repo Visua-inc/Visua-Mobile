@@ -67,13 +67,14 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   card: {
+    position: 'absolute',
+    bottom: 0,
     backgroundColor: '#1A222A',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     padding: 20,
-    width: 392,
-    height: 600,
-    marginTop: 185,
+    width: '100%',
+    height: '80%',
   },
   profile: {
     flexDirection: 'row',
