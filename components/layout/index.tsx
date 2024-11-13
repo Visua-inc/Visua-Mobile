@@ -1,32 +1,24 @@
-import { Ionicons } from '@expo/vector-icons'
 import React, { ReactNode } from 'react'
-import { Text, View, StyleSheet, Pressable } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 
 interface LayoutProps {
   children: ReactNode
+  upperContent: string
+  lowerContent?: ReactNode
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({
+  children,
+  upperContent,
+  lowerContent,
+}: LayoutProps) {
   return (
     <View style={styles.container}>
       <View style={styles.upContainer}>
-        <Text style={styles.text}>
-          DESCRITOR DE OBJETO. APONTE A CÂMERA A DOIS PALMOS DO OBJETO E SOARÁ
-          UM BIP QUANDO ELE FOR LIDO.
-        </Text>
+        <Text style={styles.text}>{upperContent}</Text>
       </View>
       {children}
-      <View style={styles.buttonContainer}>
-        <Pressable>
-          <Ionicons name='list' size={72} color='white' />
-        </Pressable>
-        <Pressable>
-          <Ionicons name='barcode-sharp' size={72} color='white' />
-        </Pressable>
-        <Pressable>
-          <Ionicons name='camera' size={72} color='white' />
-        </Pressable>
-      </View>
+      <View style={styles.buttonContainer}>{lowerContent}</View>
     </View>
   )
 }
@@ -44,13 +36,14 @@ const styles = StyleSheet.create({
   },
   upContainer: {
     width: '100%',
+    minHeight: '15%',
     zIndex: 1,
+
+    padding: 12,
 
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-
-    paddingVertical: 40,
 
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
@@ -59,16 +52,14 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     width: '100%',
-    zIndex: 2,
+    minHeight: '15%',
 
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    zIndex: 3,
+
+    padding: 12,
 
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-
-    paddingVertical: 30,
+    justifyContent: 'center',
 
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
