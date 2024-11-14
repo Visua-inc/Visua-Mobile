@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+import Layout from '@/components/layout'
 
 interface OptionItemProps {
   icon: string
@@ -10,41 +11,47 @@ interface OptionItemProps {
 
 export default function Configuracoes() {
   return (
-    <View style={styles.container}>
-      <View style={styles.card}>
-        <View style={styles.profile}>
-          <View style={styles.iconWrapper}>
-            <Ionicons name='person-circle-outline' size={24} color='#ffffff' />
+    <Layout isCam={true}>
+      <View style={styles.container}>
+        <View style={styles.card}>
+          <View style={styles.profile}>
+            <View style={styles.iconWrapper}>
+              <Ionicons
+                name='person-circle-outline'
+                size={24}
+                color='#ffffff'
+              />
+            </View>
+            <View style={styles.profileText}>
+              <Text style={styles.profileName}>Odisseia</Text>
+            </View>
           </View>
-          <View style={styles.profileText}>
-            <Text style={styles.profileName}>Odisseia</Text>
-          </View>
-        </View>
 
-        <View style={styles.options}>
-          <OptionItem
-            icon='person-circle-outline'
-            title='Dados da conta'
-            subtitle='Minhas informações da conta'
-          />
-          <OptionItem
-            icon='trash-outline'
-            title='Limpar histórico'
-            subtitle='Limpa seu histórico'
-          />
-          <OptionItem
-            icon='close-circle-outline'
-            title='Apagar conta'
-            subtitle='Apagar sua conta do App'
-          />
-          <OptionItem
-            icon='log-out-outline'
-            title='Sair da conta'
-            subtitle='Realizar logout da conta'
-          />
+          <View style={styles.options}>
+            <OptionItem
+              icon='person-circle-outline'
+              title='Dados da conta'
+              subtitle='Minhas informações da conta'
+            />
+            <OptionItem
+              icon='trash-outline'
+              title='Limpar histórico'
+              subtitle='Limpa seu histórico'
+            />
+            <OptionItem
+              icon='close-circle-outline'
+              title='Apagar conta'
+              subtitle='Apagar sua conta do App'
+            />
+            <OptionItem
+              icon='log-out-outline'
+              title='Sair da conta'
+              subtitle='Realizar logout da conta'
+            />
+          </View>
         </View>
       </View>
-    </View>
+    </Layout>
   )
 }
 
@@ -65,6 +72,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    zIndex: 5,
   },
   card: {
     position: 'absolute',
@@ -74,7 +82,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
     padding: 20,
     width: '100%',
-    height: '80%',
+    height: '90%',
   },
   profile: {
     flexDirection: 'row',
