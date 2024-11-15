@@ -4,10 +4,11 @@ import React, { ReactNode, useState } from 'react'
 import { Text, View, StyleSheet, Pressable, Image } from 'react-native'
 
 interface LayoutProps {
-  children: ReactNode
+  children?: ReactNode
+  audio?: string
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, audio }: LayoutProps) {
   const [isCam, setIsCam] = useState(true)
   const router = useRouter()
 
@@ -22,29 +23,38 @@ export default function Layout({ children }: LayoutProps) {
       </View>
       {children}
       <View style={styles.bottomContainer}>
-        <View style={styles.buttons}>
-          <Pressable onPress={() => router.push('/')}>
-            <Ionicons name='list' size={65} color='white' />
-          </Pressable>
-          <Pressable
-            onPress={() => {
-              if (isCam) {
-                setIsCam(false)
-              }
-            }}
-          >
-            <Ionicons name='barcode-sharp' size={65} color='white' />
-          </Pressable>
-          <Pressable
-            onPress={() => {
-              if (!isCam) {
-                setIsCam(true)
-              }
-            }}
-          >
-            <Ionicons name='camera' size={65} color='white' />
-          </Pressable>
-        </View>
+        {audio ? (
+          <View>
+            <Pressable>
+              <Ionicons name='play-skip-forward-circle-outline' size={65} color='white' />
+            </Pressable>
+            <Image source={require(audio)}/>
+          </View>
+        ) : (
+          <View style={styles.buttons}>
+            <Pressable onPress={() => router.push('/')}>
+              <Ionicons name='list' size={65} color='white' />
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                if (isCam) {
+                  setIsCam(false)
+                }
+              }}
+            >
+              <Ionicons name='barcode-sharp' size={65} color='white' />
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                if (!isCam) {
+                  setIsCam(true)
+                }
+              }}
+            >
+              <Ionicons name='camera' size={65} color='white' />
+            </Pressable>
+          </View>
+        )}
       </View>
     </View>
   )
