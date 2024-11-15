@@ -22,11 +22,11 @@ export default function App() {
           <Text style={styles.texto4}>Ser recuperados</Text>
           <>
       <TouchableHighlight style={styles.Limpar} onPress={handleCancelPress}>
-        <Text style={{ color: '#ECEFF4', fontSize: 18 }}>Limpar</Text>
+        <Text style={{ color: '#ECEFF4', fontSize: 22 }}>Limpar</Text>
       </TouchableHighlight>
 
       <TouchableHighlight style={styles.sair} onPress={handleExitPress}>
-        <Text style={{ color: '#ECEFF4', fontSize: 18 }}>Cancelar</Text>
+        <Text style={{ color: '#ECEFF4', fontSize: 22 }}>Cancelar</Text>
       </TouchableHighlight>
     </>
         </View>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     padding: '1%',
     alignItems: 'center',
     marginTop: '10%',
-    width: '44%',
+    width: '50%',
     justifyContent: 'center',
   } as ViewStyle,
 
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     padding: '1%',
     alignItems: 'center',
     marginTop: '10%',
-    width: '44%',
+    width: '50%',
     justifyContent: 'center',
   } as ViewStyle,
 
