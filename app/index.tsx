@@ -1,5 +1,6 @@
 import { Text, View } from "react-native";
 import Configuracoes from "./configuracoes";
+import AlterarDados from "./alterarDados";
 import React from "react";
 
 export default function Index() {
@@ -11,7 +12,7 @@ export default function Index() {
         alignItems: 'center',
       }}
     >
-      <Configuracoes/>
+      <AlterarDados/>
     </View>
   )
 }
