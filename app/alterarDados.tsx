@@ -16,25 +16,21 @@ export default function AlterarDados() {
         <View style={styles.card}>
           <View style={styles.profile}>
             <OptionItem
-                icon='person-circle-outline'
-                title='Dados da conta'
-                subtitle='Minhas informações da conta'
-              />
-            <View style={styles.profileText}>
-              <Text style={styles.profileName}>Cleide</Text>
-            </View>
+              icon='person-circle-outline'
+              title='Altere seus dados'
+              subtitle='Minhas informações da conta'
+            />
           </View>
 
           <View style={styles.options}>
-            <OptionItem 
-              title='Nome:'
-              subtitle='Eliana' icon={''}/>
-            <OptionItem
-              title='Email:'
-              subtitle='Eliana@gmail.com' icon={''}/>
-            <OptionItem
-              title='Senha:'
-              subtitle='***' icon={''}/>
+            <OptionItem title='Nome:' subtitle='Eliana' icon={''} />
+            <OptionItem title='Email:' subtitle='Eliana@gmail.com' icon={''} />
+            <OptionItem title='Senha:' subtitle='***' icon={''} />
+          </View>
+          <View style={styles.rodape}>
+            <Text style={styles.texto}>
+              Clique sobre a opção para fazer a alteração
+            </Text>
           </View>
         </View>
       </View>
@@ -67,29 +63,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A222A',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    padding: 20,
     width: '100%',
     height: '90%',
+    padding: 20,
   },
   profile: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 5,
-  },
-  iconWrapper: {
-    backgroundColor: '#4b5563',
-    width: 40,
-    paddingLeft: 8,
-    padding: 8,
-    borderRadius: 50,
-  },
-  profileText: {
-    marginLeft: 12,
-  },
-  profileName: {
-    color: '#ffffff',
-    fontSize: 26,
-    fontWeight: '600',
   },
   options: {
     borderTopWidth: 1,
@@ -112,5 +93,17 @@ const styles = StyleSheet.create({
   optionSubtitle: {
     color: '#9ca3af',
     fontSize: 24,
+  },
+  rodape: {
+    position: 'absolute',
+    bottom: 70,
+    alignItems: 'center',
+    width: '110%',
+    paddingHorizontal: 20,
+  },
+  texto: {
+    color: '#ffffff',
+    textAlign: 'center',
+    fontSize: 20,
   },
 })
