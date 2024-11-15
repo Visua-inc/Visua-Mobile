@@ -9,7 +9,7 @@ export default function RootLayout() {
         options={{
           headerTitle: '',
           headerStyle: {
-            backgroundColor: '#1c7396',
+            backgroundColor: '#172F3B',
           },
           headerTintColor: 'white',
           headerShadowVisible: false,
