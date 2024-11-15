@@ -15,7 +15,7 @@ export default function Cadastro() {
       <Layout>
         <View style={styles.formContainer}>
           <Text style={styles.instructionText}>
-            Para acessar o histórico é necessário possuir um cadastro. {'\n'}{' '}
+            Para acessar o histórico é necessário possuir um cadastro. 
             Por favor, crie sua conta:
           </Text>
 
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: '#1A222A',
     width: '100%',
-    height: '90%',
+    height: '86%',
     alignItems: 'center',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -91,18 +91,18 @@ const styles = StyleSheet.create({
     zIndex: 3,
   },
   instructionText: {
-    fontSize: 19,
+    fontSize: 21,
     fontWeight: 'bold',
     color: '#DFE2E7',
     marginHorizontal: 22,
-    marginBottom: 10,
+    marginBottom: 15,
   },
   title: {
     fontSize: 29,
     fontWeight: 'bold',
     color: '#DFE2E7',
     marginHorizontal: 22,
-    marginBottom: 10,
+    marginBottom: 15,
   },
   form: {
     width: '100%',
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     borderColor: '#1C7396',
     borderWidth: 2,
     borderRadius: 50,
-    width: '86%',
+    width: '88%',
     height: '13%',
     paddingHorizontal: 15,
     marginBottom: 24,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 24,
+    marginBottom: 22,
   },
   googleButton: {
     flexDirection: 'row',
