@@ -1,6 +1,5 @@
-import Cadastro from '@/components/cadastro'
 import { View } from 'react-native'
-
+import Cadastro from '@/components/cadastro';
 
 export default function Index() {
   return (
