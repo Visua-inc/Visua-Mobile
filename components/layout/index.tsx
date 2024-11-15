@@ -1,52 +1,123 @@
-import React, { ReactNode } from "react";
-import { Text, View, Button, StyleSheet } from "react-native";
+import { Ionicons } from '@expo/vector-icons'
+import { useRouter } from 'expo-router'
+import React, { ReactNode, useState } from 'react'
+import { Text, View, StyleSheet, Pressable, Image } from 'react-native'
 
 interface LayoutProps {
   children: ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const [isCam, setIsCam] = useState(true)
+  const router = useRouter()
+
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.text}>Texto</Text>
+      <View style={styles.upContainer}>
+        <Text style={styles.text}>
+          {isCam
+            ? 'DESCRITOR DE OBJETO. APONTE A CÂMERA A DOIS PALMOS DO OBJETO E SOARÁ UM BIP QUANDO ELE FOR LIDO.'
+            : 'LEITOR DE CÓDIGO DE BARRAS. APONTE A CÂMERA A DOIS PALMOS DO CÓDIGO E SOARÁ UM BIP QUANDO ELE FOR LIDO.'}
+        </Text>
       </View>
       {children}
-      <View style={styles.buttonContainer}>
-        <Button title="Botão 1" onPress={() => {}} />
-        <Button title="Botão 2" onPress={() => {}} />
-        <Button title="Botão 3" onPress={() => {}} />
+      <View style={styles.bottomContainer}>
+        <View style={styles.buttons}>
+          <Pressable onPress={() => router.push('/')}>
+            <Ionicons name='list' size={65} color='white' />
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              if (isCam) {
+                setIsCam(false)
+              }
+            }}
+          >
+            <Ionicons name='barcode-sharp' size={65} color='white' />
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              if (!isCam) {
+                setIsCam(true)
+              }
+            }}
+          >
+            <Ionicons name='camera' size={65} color='white' />
+          </Pressable>
+        </View>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 20, // Adicionando um pouco de espaço para o layout
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
+
   text: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
+    color: 'white',
+    textAlign: 'justify',
   },
-  buttonContainer: {
-    width: "100%", // Tornando os botões responsivos
 
-    display: "flex",
-    flexDirection: "row",
+  upContainer: {
+    width: '100%',
+    minHeight: '15%',
+    zIndex: 2,
 
-    alignItems: "center",
-    gap: 60,
+    padding: 12,
 
-    backgroundColor: "#1C7396",
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+
+    backgroundColor: '#1C7396',
   },
+
+  bottomContainer: {
+    width: '100%',
+    minHeight: '15%',
+    zIndex: 4,
+
+    padding: 12,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+
+    position: 'absolute',
+    bottom: 0,
+
+    backgroundColor: '#1C7396',
+  },
+
+  buttons: {
+    width: '100%',
+
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+
+  audio: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+
   image: {
-    width: 150,
-    height: 150,
-    borderRadius: 10,
-    marginTop: 20,
+    width: '68%',
+    height: '68%',
   },
-});
+})
