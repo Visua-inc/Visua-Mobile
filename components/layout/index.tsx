@@ -26,9 +26,12 @@ export default function Layout({ children, audio }: LayoutProps) {
         {audio ? (
           <View>
             <Pressable>
-              <Ionicons name='play-skip-forward-circle-outline' size={65} color='white' />
+              <Ionicons
+                name='play-skip-forward-circle-outline'
+                size={65}
+                color='white'
+              />
             </Pressable>
-            <Image source={require(audio)}/>
           </View>
         ) : (
           <View style={styles.buttons}>
