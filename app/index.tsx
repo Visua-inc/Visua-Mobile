@@ -1,5 +1,5 @@
-import { View } from 'react-native'
-import Cadastro from '@/components/cadastro';
+import Layout from '@/components/layout'
+import { Text, View } from 'react-native'
 
 export default function Index() {
   return (
@@ -10,7 +10,9 @@ export default function Index() {
         alignItems: 'center',
       }}
     >
-      <Cadastro/>
+      <Layout>
+        <Text>Edit app/index.tsx to edit this screen.</Text>
+      </Layout>
     </View>
   )
 }
