@@ -1,16 +1,10 @@
-import { Text, StyleSheet, View,TouchableHighlight,GestureResponderEvent, ViewStyle  } from 'react-native';
+import { Text, StyleSheet, View,TouchableHighlight  } from 'react-native';
 
 
 
 export default function App() {
 
-  const handleCancelPress = (event: GestureResponderEvent) => {
-    console.log('Botão Cancelar pressionado!');
-  };
   
-  const handleExitPress = (event: GestureResponderEvent) => {
-    console.log('Botão Sair pressionado!');
-  };
   return (
     <View style={styles.container}>
       <View style={styles.quadradodentro}>
@@ -21,11 +15,11 @@ export default function App() {
           <Text style={styles.texto3}>Posteriormente</Text>
           
           <>
-      <TouchableHighlight style={styles.Limpar} onPress={handleCancelPress}>
+      <TouchableHighlight style={styles.Limpar}>
         <Text style={{ color: '#ECEFF4', fontSize: 22 }}>Apagar</Text>
       </TouchableHighlight>
 
-      <TouchableHighlight style={styles.sair} onPress={handleExitPress}>
+      <TouchableHighlight style={styles.sair}>
         <Text style={{ color: '#ECEFF4', fontSize: 22 }}>Cancelar</Text>
       </TouchableHighlight>
     </>
@@ -92,7 +86,7 @@ const styles = StyleSheet.create({
     marginTop: '15%',
     width: '60%',
     justifyContent: 'center',
-  } as ViewStyle,
+  } ,
 
   sair: {
     borderWidth: 2,
@@ -103,6 +97,6 @@ const styles = StyleSheet.create({
     marginTop: '4%',
     width: '60%',
     justifyContent: 'center',
-  } as ViewStyle,
+  } ,
 
 });
