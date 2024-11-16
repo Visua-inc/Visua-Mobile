@@ -1,3 +1,4 @@
+import Layout from '@/components/layout'
 import { Text, View } from 'react-native'
 import Login from './login'
 
@@ -10,7 +11,9 @@ export default function Index() {
         alignItems: 'center',
       }}
     >
-      <Login/>
+      <Layout>
+        <Text>Edit app/index.tsx to edit this screen.</Text>
+      </Layout>
     </View>
   )
 }
