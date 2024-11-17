@@ -21,7 +21,7 @@ export default function Layout({ children, audio }: LayoutProps) {
             : 'LEITOR DE CÓDIGO DE BARRAS. APONTE A CÂMERA A DOIS PALMOS DO CÓDIGO E SOARÁ UM BIP QUANDO ELE FOR LIDO.'}
         </Text>
       </View>
-      {children}
+      <View style={styles.containerCam}>{children}</View>
       <View style={styles.bottomContainer}>
         {audio ? (
           <View>
@@ -71,10 +71,18 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: 'bold',
     color: 'white',
     textAlign: 'justify',
+  },
+
+  containerCam: {
+    flex: 1,
+    bottom: "12%",
+    position: 'absolute',
+    height: "85%",
+    width: "100%"
   },
 
   upContainer: {
