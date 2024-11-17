@@ -10,7 +10,7 @@ export default function Index() {
         alignItems: 'center',
       }}
     >
-      <Layout audio='@/assets/images/audioPlaceholder.png'>
+      <Layout>
         <Text>Edit app/index.tsx to edit this screen.</Text>
       </Layout>
     </View>
