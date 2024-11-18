@@ -4,12 +4,13 @@ import React, { ReactNode, useState } from 'react'
 import { Text, View, StyleSheet, Pressable, Image } from 'react-native'
 
 interface LayoutProps {
-  children: ReactNode
-  isCam: boolean
+  children?: ReactNode
+  audio?: string
 }
 
-export default function Layout({ children, isCam }: LayoutProps) {
-  const turn = isCam
+export default function Layout({ children, audio }: LayoutProps) {
+  const [isCam, setIsCam] = useState(true)
+  const router = useRouter()
 
   return (
     <View style={styles.container}>
@@ -22,20 +23,8 @@ export default function Layout({ children, isCam }: LayoutProps) {
       </View>
       <View style={styles.containerCam}>{children}</View>
       <View style={styles.bottomContainer}>
-        {turn ? (
-          <View style={styles.buttons}>
-            <Pressable>
-              <Ionicons name='list' size={65} color='white' />
-            </Pressable>
-            <Pressable>
-              <Ionicons name='barcode-sharp' size={65} color='white' />
-            </Pressable>
-            <Pressable>
-              <Ionicons name='camera' size={65} color='white' />
-            </Pressable>
-          </View>
-        ) : (
-          <View style={styles.audio}>
+        {audio ? (
+          <View>
             <Pressable>
               <Ionicons
                 name='play-skip-forward-circle-outline'
@@ -43,10 +32,30 @@ export default function Layout({ children, isCam }: LayoutProps) {
                 color='white'
               />
             </Pressable>
-            <Image
-              source={require('@/assets/images/audioPlaceholder.png')}
-              style={styles.image}
-            />
+          </View>
+        ) : (
+          <View style={styles.buttons}>
+            <Pressable onPress={() => router.push('/')}>
+              <Ionicons name='list' size={65} color='white' />
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                if (isCam) {
+                  setIsCam(false)
+                }
+              }}
+            >
+              <Ionicons name='barcode-sharp' size={65} color='white' />
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                if (!isCam) {
+                  setIsCam(true)
+                }
+              }}
+            >
+              <Ionicons name='camera' size={65} color='white' />
+            </Pressable>
           </View>
         )}
       </View>
@@ -65,6 +74,15 @@ const styles = StyleSheet.create({
     fontSize: 19,
     fontWeight: 'bold',
     color: 'white',
+    textAlign: 'justify',
+  },
+
+  containerCam: {
+    flex: 1,
+    bottom: '12%',
+    position: 'absolute',
+    height: '85%',
+    width: '100%',
   },
 
   upContainer: {

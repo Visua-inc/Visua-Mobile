@@ -6,34 +6,34 @@ import BotaoTitulo from '@/components/botaoTitulo'
 import Botoes from '@/components/botaoHistorico'
 import BotaoItens from '@/components/botaoItens'
 
-export default function AlterarDados({a}:string) {
+export default function AlterarDados() {
   return (
-    <Layout isCam={true}>
-      <View style={styles.container}>
-        <View style={styles.card}>
-          <Botoes icon={'arrow-undo-outline'} title={'Dados da Conta'} subtitle={'Clique para voltar'}/>
-          <BotaoItens icon={''} title={''}/>
-          
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <Botoes
+          icon={'arrow-undo-outline'}
+          title={'Dados da Conta'}
+          subtitle={'Clique para voltar'}
+        />
+        <BotaoItens />
 
-          <View style={styles.rodape}>
-            <Text style={styles.texto}>
-              Clique sobre a opção para fazer a alteração
-            </Text>
-          </View>
-        </View>
+        <Text style={styles.texto}>
+          Clique sobre a opção para fazer a alteração
+        </Text>
       </View>
-    </Layout>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    height: '100%',
+    position: 'absolute',
     zIndex: 5,
+    backgroundColor: 'rgba(23, 27, 32, 0.8)',
   },
   card: {
     position: 'absolute',
@@ -42,16 +42,10 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     width: '100%',
-    height: '90%',
+    height: '100%',
     padding: 20,
   },
-  rodape: {
-    position: 'absolute',
-    bottom: 70,
-    alignItems: 'center',
-    width: '110%',
-    paddingHorizontal: 20,
-  },
+
   texto: {
     color: '#ffffff',
     textAlign: 'center',

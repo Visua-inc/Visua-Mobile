@@ -7,7 +7,7 @@ interface OptionItemProps {
   subtitle?: string
 }
 
-export default function BotaoItens({ title, subtitle }: OptionItemProps) {
+export default function BotaoItens() {
   return (
     <View style={styles.profile}>
       <OptionItem title='Nome:' subtitle='Eliana' />
