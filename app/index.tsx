@@ -1,21 +1,14 @@
 import AlterarDados from '@/components/alterarDados'
 import Visua_Cam from '@/components/camera'
 import Layout from '@/components/layout'
-import Loading_Permission from '@/components/loading'
 import PopUp from '@/components/popUp'
-import { useCameraAccess } from '@/hooks/useCamera'
 import useVisibilityManager from '@/hooks/useVisibilityManager'
 import React from 'react'
 import { View } from 'react-native'
 
 export default function Index() {
-  const { hasPermission, requestPermission } = useCameraAccess()
   const { alterVisible, delVisible, clearVisible, outVisible, open, close } =
     useVisibilityManager()
-
-  if (!hasPermission) {
-    return <Loading_Permission Permission={requestPermission} />
-  }
 
   return (
     <Layout alterButton={() => open('alterVisible')}>
@@ -59,8 +52,9 @@ export default function Index() {
 
     // <View style={{ flex: 1 }}>
     //   <Layout>
-    //     <Visua_Cam />
+    //     <AlterarDados />
     //   </Layout>
     // </View>
+
   )
 }
