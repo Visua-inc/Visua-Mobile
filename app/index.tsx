@@ -13,17 +13,16 @@ export default function Index() {
   }
 
   return (
-    // <Layout>
-    //   <Visua_Cam />
-    // </Layout>
+    <Layout>
+      <Visua_Cam />
+    </Layout>
 
     // para testar oq vc estiver fazendo comente o layout acima e use essa view em baixo
 
-    <View style={{ flex: 1 }}>
-      <Layout>
-        <AlterarDados />
-      </Layout>
-       
-    </View>
+    // <View style={{ flex: 1 }}>
+    //   <Layout>
+    //     <AlterarDados />
+    //   </Layout>
+    // </View>
   )
 }

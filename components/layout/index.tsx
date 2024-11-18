@@ -79,10 +79,11 @@ const styles = StyleSheet.create({
 
   containerCam: {
     flex: 1,
-    bottom: '12%',
-    position: 'absolute',
-    height: '85%',
+    justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
+    height: '100%',
+    marginVertical: 'auto',
   },
 
   upContainer: {
@@ -139,6 +140,6 @@ const styles = StyleSheet.create({
 
   image: {
     width: '68%',
-    height: '68%',
-  },
+    height: '68%',
+  },
 })
