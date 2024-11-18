@@ -5,6 +5,7 @@ const useVisibilityManager = () => {
     delVisible: false,
     clearVisible: false,
     outVisible: false,
+    alterVisible: false,
   })
 
   const setVisibility = useCallback(

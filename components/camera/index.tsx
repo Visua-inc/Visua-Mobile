@@ -1,13 +1,13 @@
-import { CameraView, CameraType } from 'expo-camera';
-import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
-
+import { CameraView, CameraType } from 'expo-camera'
+import React from 'react'
+import { useState } from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 export default function Visua_Cam() {
-  const [facing, setFacing] = useState<CameraType>('back');
+  const [facing, setFacing] = useState<CameraType>('back')
 
   function toggleCameraFacing() {
-    setFacing((current) => (current === 'back' ? 'front' : 'back'));
+    setFacing((current) => (current === 'back' ? 'front' : 'back'))
   }
 
   return (
@@ -20,7 +20,7 @@ export default function Visua_Cam() {
         </View>
       </CameraView>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -29,8 +29,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   camera: {
-    height: '100%',
     width: '100%',
+    height: '80%',
+    overflow: 'hidden',
+    alignItems: 'center',
   },
   buttonContainer: {
     flex: 1,
@@ -48,4 +50,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
   },
-});
+})
