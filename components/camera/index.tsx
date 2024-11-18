@@ -1,5 +1,6 @@
 import { useCameraAccess } from '@/hooks/useCamera';
 import { CameraView } from 'expo-camera';
+import React from 'react';
 import { useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
