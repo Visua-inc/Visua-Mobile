@@ -79,10 +79,10 @@ const styles = StyleSheet.create({
 
   containerCam: {
     flex: 1,
-    bottom: "12%",
+    bottom: '12%',
     position: 'absolute',
-    height: "85%",
-    width: "100%"
+    height: '85%',
+    width: '100%',
   },
 
   upContainer: {
