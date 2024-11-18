@@ -1,27 +1,51 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 interface ButtonProps {
-  contentText?: string
+  contentText1?: string
+  contentText2?: string
   buttonText?: string
+  isVisible: boolean
+  onOpen: () => void
+  onClose: () => void
 }
 
-export default function PopUp({ contentText, buttonText }: ButtonProps) {
+export default function PopUp({
+  contentText1,
+  contentText2,
+  buttonText,
+  isVisible,
+  onOpen,
+  onClose,
+}: ButtonProps) {
   return (
-    <View style={styles.bg}>
-      <View style={styles.container}>
-        <Text style={styles.title}>Confirmação</Text>
-        <Text style={styles.content}>{contentText}</Text>
+    <Modal
+      visible={isVisible}
+      transparent={true}
+      animationType='none'
+      onRequestClose={onClose}
+    >
+      <View style={styles.bg}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Confirmação</Text>
+          <Text style={styles.content}>
+            {contentText1}
+            {contentText2 ? '\n' : ''}
+            {contentText2}
+          </Text>
 
-        <View style={styles.buttons}>
-          <TouchableOpacity style={styles.button1}>
-            <Text style={styles.bText}>{buttonText}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.button1, styles.button2]}>
-            <Text style={styles.bText}>Cancelar</Text>
-          </TouchableOpacity>
+          <View style={styles.buttons}>
+            <TouchableOpacity style={styles.button1}>
+              <Text style={styles.bText}>{buttonText}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.button1, styles.button2]}>
+              <Text style={styles.bText} onPress={onClose}>
+                Cancelar
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-    </View>
+    </Modal>
   )
 }
 
@@ -48,7 +72,7 @@ const styles = StyleSheet.create({
     padding: '3%',
     borderRadius: 45,
 
-    height: '56%',
+    minHeight: '56%',
     width: '85%',
 
     gap: '5%',
