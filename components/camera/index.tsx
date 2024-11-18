@@ -31,9 +31,7 @@ const styles = StyleSheet.create({
   camera: {
     width: '100%',
     height: '80%',
-    borderRadius: 10, // Para arredondar se necessário
     overflow: 'hidden',
-    justifyContent: 'center', // Centraliza o conteúdo interno, se houver
     alignItems: 'center',
   },
   buttonContainer: {
