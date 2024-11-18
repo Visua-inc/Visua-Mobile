@@ -1,10 +1,12 @@
 import AlterarDados from '@/components/alterarDados'
 import Visua_Cam from '@/components/camera'
+import Configuracoes from '@/components/configuracoes'
 import Layout from '@/components/layout'
 import React from 'react'
 import { View } from 'react-native'
 
 export default function Index() {
+
   return (
     <Layout>
       <Visua_Cam />
@@ -17,5 +19,6 @@ export default function Index() {
     //     <AlterarDados />
     //   </Layout>
     // </View>
+
   )
 }

@@ -1,3 +1,4 @@
+
 import { useCameraAccess } from '@/hooks/useCamera';
 import { CameraView } from 'expo-camera';
 import React from 'react';
@@ -29,7 +30,7 @@ export default function Visua_Cam() {
       <CameraView style={styles.camera} facing={'back'}>
       </CameraView>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
