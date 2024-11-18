@@ -21,7 +21,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#171B20"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -38,7 +42,6 @@
           "recordAudioAndroid": true
         }
       ]
-
     ],
     "experiments": {
       "typedRoutes": true
@@ -51,6 +54,12 @@
         "projectId": "9e13be1c-650d-4396-9f56-890e3593fc54"
       }
     },
-    "owner": "visua-inc"
+    "owner": "visua-inc",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/9e13be1c-650d-4396-9f56-890e3593fc54"
+    }
   }
 }
