@@ -1,18 +1,25 @@
-import { Text, View } from "react-native";
-import Configuracoes from "./configuracoes";
-import AlterarDados from "./alterarDados";
-import React from "react";
+import Visua_Cam from '@/components/camera'
+import Layout from '@/components/layout'
+import Loading_Permission from '@/components/loading'
+import { useCameraAccess } from '@/hooks/useCamera'
+import { View } from 'react-native'
 
 export default function Index() {
+  const { hasPermission, requestPermission } = useCameraAccess()
+
+  if (!hasPermission) {
+    return <Loading_Permission Permission={requestPermission} />
+  }
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <AlterarDados/>
-    </View>
+      <Layout>
+        <Visua_Cam />
+      </Layout>
+
+    // para testar oq vc estiver fazendo comente o layout acima e use essa view em baixo
+
+    // <View style={{ flex: 1 }}>
+      
+    // </View>
   )
 }

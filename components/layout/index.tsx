@@ -5,11 +5,11 @@ import { Text, View, StyleSheet, Pressable, Image } from 'react-native'
 
 interface LayoutProps {
   children: ReactNode
+  isCam: boolean
 }
 
-export default function Layout({ children }: LayoutProps) {
-  const [isCam, setIsCam] = useState(true)
-  const router = useRouter()
+export default function Layout({ children, isCam }: LayoutProps) {
+  const turn = isCam
 
   return (
     <View style={styles.container}>
@@ -20,31 +20,35 @@ export default function Layout({ children }: LayoutProps) {
             : 'LEITOR DE CÓDIGO DE BARRAS. APONTE A CÂMERA A DOIS PALMOS DO CÓDIGO E SOARÁ UM BIP QUANDO ELE FOR LIDO.'}
         </Text>
       </View>
-      {children}
+      <View style={styles.containerCam}>{children}</View>
       <View style={styles.bottomContainer}>
-        <View style={styles.buttons}>
-          <Pressable onPress={() => router.push('/')}>
-            <Ionicons name='list' size={65} color='white' />
-          </Pressable>
-          <Pressable
-            onPress={() => {
-              if (isCam) {
-                setIsCam(false)
-              }
-            }}
-          >
-            <Ionicons name='barcode-sharp' size={65} color='white' />
-          </Pressable>
-          <Pressable
-            onPress={() => {
-              if (!isCam) {
-                setIsCam(true)
-              }
-            }}
-          >
-            <Ionicons name='camera' size={65} color='white' />
-          </Pressable>
-        </View>
+        {turn ? (
+          <View style={styles.buttons}>
+            <Pressable>
+              <Ionicons name='list' size={65} color='white' />
+            </Pressable>
+            <Pressable>
+              <Ionicons name='barcode-sharp' size={65} color='white' />
+            </Pressable>
+            <Pressable>
+              <Ionicons name='camera' size={65} color='white' />
+            </Pressable>
+          </View>
+        ) : (
+          <View style={styles.audio}>
+            <Pressable>
+              <Ionicons
+                name='play-skip-forward-circle-outline'
+                size={65}
+                color='white'
+              />
+            </Pressable>
+            <Image
+              source={require('@/assets/images/audioPlaceholder.png')}
+              style={styles.image}
+            />
+          </View>
+        )}
       </View>
     </View>
   )
@@ -58,10 +62,9 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 20,
+    fontSize: 19,
     fontWeight: 'bold',
     color: 'white',
-    textAlign: 'justify',
   },
 
   upContainer: {
