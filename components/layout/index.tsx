@@ -6,11 +6,11 @@ import { Text, View, StyleSheet, Pressable, Image } from 'react-native'
 interface LayoutProps {
   children?: ReactNode
   audio?: string
+  alterButton?: () => void
 }
 
-export default function Layout({ children, audio }: LayoutProps) {
+export default function Layout({ children, audio, alterButton }: LayoutProps) {
   const [isCam, setIsCam] = useState(true)
-  const router = useRouter()
 
   return (
     <View style={styles.container}>
@@ -35,7 +35,7 @@ export default function Layout({ children, audio }: LayoutProps) {
           </View>
         ) : (
           <View style={styles.buttons}>
-            <Pressable onPress={() => router.push('/')}>
+            <Pressable onPress={alterButton}>
               <Ionicons name='list' size={65} color='white' />
             </Pressable>
             <Pressable
