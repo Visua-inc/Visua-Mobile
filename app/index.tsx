@@ -1,15 +1,8 @@
 import Visua_Cam from '@/components/camera'
 import Layout from '@/components/layout'
-import Loading_Permission from '@/components/loading'
-import { useCameraAccess } from '@/hooks/useCamera'
 import { View } from 'react-native'
 
 export default function Index() {
-  const { hasPermission, requestPermission } = useCameraAccess()
-
-  if (!hasPermission) {
-    return <Loading_Permission Permission={requestPermission} />
-  }
 
   return (
       <Layout>

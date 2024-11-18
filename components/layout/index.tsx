@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
 
   containerCam: {
     flex: 1,
-    bottom: "12%",
+    bottom: "11%",
     position: 'absolute',
     height: "85%",
     width: "100%"
