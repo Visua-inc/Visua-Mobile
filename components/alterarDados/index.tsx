@@ -1,28 +1,75 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
-import Layout from '@/components/layout'
-import BotaoTitulo from '@/components/botaoTitulo'
 import Botoes from '@/components/botaoHistorico'
 import BotaoItens from '@/components/botaoItens'
+import { Ionicons } from '@expo/vector-icons'
 
-export default function AlterarDados() {
+interface AlterarDadosProps {
+  del?: () => void
+  clear?: () => void
+  out?: () => void
+}
+
+export default function AlterarDados({ del, clear, out }: AlterarDadosProps) {
+  const [alter, setAlter] = useState(false)
+
   return (
     <View style={styles.container}>
-      <View style={styles.card}>
-        <Botoes
-          icon={'arrow-undo-outline'}
-          title={'Dados da Conta'}
-          subtitle={'Clique para voltar'}
-        />
-        <BotaoItens />
+      {alter ? (
+        <View style={styles.card}>
+          <Botoes
+            icon={'arrow-undo-outline'}
+            title={'Dados da Conta'}
+            subtitle={'Clique para voltar'}
+            onPress={() => setAlter(false)}
+          />
+          <BotaoItens title='Nome:' subtitle='Eliana' />
+          <BotaoItens title='Email:' subtitle='Eliana@gmail.com' />
+          <BotaoItens title='Senha:' subtitle='***' />
 
-        <View style={styles.warning}>
-          <Text style={styles.texto}>
-            Clique sobre a opção para fazer a alteração
-          </Text>
+          <View style={styles.warning}>
+            <Text style={styles.texto}>
+              Clique sobre a opção para fazer a alteração
+            </Text>
+          </View>
         </View>
-      </View>
+      ) : (
+        <View style={styles.card}>
+          <View style={styles.profile}>
+            <View style={styles.iconWrapper}>
+              <Ionicons name='person-outline' size={35} color='#ffffff' />
+            </View>
+            <View style={styles.profileText}>
+              <Text style={styles.profileName}>Odisseia</Text>
+            </View>
+          </View>
+
+          <Botoes
+            icon={'document-text-outline'}
+            title={'Dados da Conta'}
+            subtitle={'Minhas informações'}
+            onPress={() => setAlter(true)}
+          />
+          <Botoes
+            icon={'trash-outline'}
+            title={'Limpar histórico'}
+            subtitle={'Limpa seu histórico'}
+            onPress={clear}
+          />
+          <Botoes
+            icon={'close-circle-outline'}
+            title={'Apagar conta'}
+            subtitle={'Apagar sua conta do App'}
+            onPress={del}
+          />
+          <Botoes
+            icon={'log-out-outline'}
+            title={'Sair da conta'}
+            subtitle={'Realizar logout da conta'}
+            onPress={out}
+          />
+        </View>
+      )}
     </View>
   )
 }
@@ -60,5 +107,23 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
     paddingBottom: 16,
+  },
+  profile: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  iconWrapper: {
+    padding: 8,
+    borderRadius: '100%',
+    backgroundColor: '#172F3B',
+  },
+  profileText: {
+    marginLeft: 12,
+  },
+  profileName: {
+    color: '#ffffff',
+    fontSize: 26,
+    fontWeight: '600',
   },
 })

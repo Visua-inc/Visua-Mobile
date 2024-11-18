@@ -5,41 +5,7 @@ import BotaoItens from '@/components/botaoItens'
 import { Ionicons } from '@expo/vector-icons'
 
 export default function Configuracoes() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.card}>
-        <View style={styles.profile}>
-          <View style={styles.iconWrapper}>
-            <Ionicons name='person-circle-outline' size={24} color='#ffffff' />
-          </View>
-          <View style={styles.profileText}>
-            <Text style={styles.profileName}>Odisseia</Text>
-          </View>
-        </View>
-
-        <Botoes
-          icon={'document-text-outline'}
-          title={'Dados da Conta'}
-          subtitle={'Minhas informações'}
-        />
-        <Botoes
-          icon={'trash-outline'}
-          title={'Limpar histórico'}
-          subtitle={'Limpa seu histórico'}
-        />
-        <Botoes
-          icon={'close-circle-outline'}
-          title={'Apagar conta'}
-          subtitle={'Apagar sua conta do App'}
-        />
-        <Botoes
-          icon={'log-out-outline'}
-          title={'Sair da conta'}
-          subtitle={'Realizar logout da conta'}
-        />
-      </View>
-    </View>
-  )
+  return <View style={styles.container}></View>
 }
 
 const styles = StyleSheet.create({
@@ -52,7 +18,7 @@ const styles = StyleSheet.create({
     zIndex: 5,
     backgroundColor: 'rgba(23, 27, 32, 0.8)',
   },
-  card: {
+  card2: {
     position: 'absolute',
     bottom: 0,
     backgroundColor: '#1A222A',

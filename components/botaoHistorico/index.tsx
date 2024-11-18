@@ -6,25 +6,27 @@ interface OptionItemProps {
   icon: React.ReactNode
   title: string
   subtitle: string
+  onPress?: () => void
 }
 
-export default function Botoes({ icon, title, subtitle }: OptionItemProps) {
+export default function Botoes({
+  icon,
+  title,
+  subtitle,
+  onPress,
+}: OptionItemProps) {
   return (
     <View>
-      <OptionItem icon={icon} title={title} subtitle={subtitle} />
+      <TouchableOpacity style={styles.optionItem} onPress={onPress}>
+        <Ionicons name={icon as any} size={35} color='#ffffff' />
+        <View style={styles.optionText}>
+          <Text style={styles.optionTitle}>{title}</Text>
+          <Text style={styles.optionSubtitle}>{subtitle}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   )
 }
-
-const OptionItem = ({ icon, title, subtitle }: OptionItemProps) => (
-  <TouchableOpacity style={styles.optionItem}>
-    <Ionicons name={icon as any} size={35} color='#ffffff' />
-    <View style={styles.optionText}>
-      <Text style={styles.optionTitle}>{title}</Text>
-      <Text style={styles.optionSubtitle}>{subtitle}</Text>
-    </View>
-  </TouchableOpacity>
-)
 
 const styles = StyleSheet.create({
   optionItem: {
